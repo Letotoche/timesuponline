@@ -1,0 +1,22 @@
+entity Partie {
+	nom String required maxlength(100)
+}
+
+entity Joueur {
+	pseudo String required unique maxlength(50)
+}
+
+
+relationship ManyToMany {
+	Partie{participant} to Joueur
+}
+
+relationship OneToMany {
+	Partie{mdj} to Joueur
+}
+
+filter Joueur, Partie
+
+paginate Joueur, Partie with pagination
+
+service all with serviceImpl
