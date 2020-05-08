@@ -1,0 +1,11 @@
+version: '2'
+services:
+  timesuponline-postgresql:
+    image: postgres:12.1
+    # volumes:
+    #     - ~/volumes/jhipster/timesuponline/postgresql/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_USER=timesuponline
+      - POSTGRES_PASSWORD=
+    ports:
+      - 5432:5432
