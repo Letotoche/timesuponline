@@ -1,0 +1,15 @@
+entity Partie {
+	intitule String required maxlength(100)
+}
+
+
+relationship ManyToMany {
+	Partie{joueur(login)} to User
+}
+
+
+filter Partie
+
+paginate Partie with pagination
+
+service all with serviceImpl
