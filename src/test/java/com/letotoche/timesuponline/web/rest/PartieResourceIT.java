@@ -3,6 +3,7 @@ package com.letotoche.timesuponline.web.rest;
 import com.letotoche.timesuponline.TimesuponlineApp;
 import com.letotoche.timesuponline.domain.Partie;
 import com.letotoche.timesuponline.domain.Equipe;
+import com.letotoche.timesuponline.domain.TourDeJeu;
 import com.letotoche.timesuponline.domain.User;
 import com.letotoche.timesuponline.domain.Mot;
 import com.letotoche.timesuponline.repository.PartieRepository;
@@ -739,6 +740,26 @@ public class PartieResourceIT {
 
         // Get all the partieList where equipe equals to equipeId + 1
         defaultPartieShouldNotBeFound("equipeId.equals=" + (equipeId + 1));
+    }
+
+
+    @Test
+    @Transactional
+    public void getAllPartiesByTourDeJeuIsEqualToSomething() throws Exception {
+        // Initialize the database
+        partieRepository.saveAndFlush(partie);
+        TourDeJeu tourDeJeu = TourDeJeuResourceIT.createEntity(em);
+        em.persist(tourDeJeu);
+        em.flush();
+        partie.addTourDeJeu(tourDeJeu);
+        partieRepository.saveAndFlush(partie);
+        Long tourDeJeuId = tourDeJeu.getId();
+
+        // Get all the partieList where tourDeJeu equals to tourDeJeuId
+        defaultPartieShouldBeFound("tourDeJeuId.equals=" + tourDeJeuId);
+
+        // Get all the partieList where tourDeJeu equals to tourDeJeuId + 1
+        defaultPartieShouldNotBeFound("tourDeJeuId.equals=" + (tourDeJeuId + 1));
     }
 
 

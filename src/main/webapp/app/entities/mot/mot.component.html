@@ -27,6 +27,7 @@
                     <th scope="col" ><span jhiTranslate="timesuponlineApp.mot.etat">Etat</span></th>
                     <th scope="col" ><span jhiTranslate="timesuponlineApp.mot.auteur">Auteur</span></th>
                     <th scope="col" ><span jhiTranslate="timesuponlineApp.mot.partie">Partie</span></th>
+                    <th scope="col" ><span jhiTranslate="timesuponlineApp.mot.tourDeJeu">Tour De Jeu</span></th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -41,6 +42,11 @@
                     <td>
                         <div *ngIf="mot.partie">
                             <a [routerLink]="['/partie', mot.partie?.id, 'view']" >{{ mot.partie?.id }}</a>
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="mot.tourDeJeu">
+                            <a [routerLink]="['/tour-de-jeu', mot.tourDeJeu?.id, 'view']" >{{ mot.tourDeJeu?.id }}</a>
                         </div>
                     </td>
                     <td class="text-right">

@@ -21,6 +21,7 @@
       "auteur": "Auteur",
       "partie": "Partie",
       "reclamation": "Reclamation",
+      "tourDeJeu": "Tour De Jeu",
       "help": {
         "mot": "mot"
       }

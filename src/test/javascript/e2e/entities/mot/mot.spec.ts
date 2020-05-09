@@ -44,7 +44,8 @@ describe('Mot e2e test', () => {
       motUpdatePage.setMotInput('mot'),
       motUpdatePage.etatSelectLastOption(),
       motUpdatePage.auteurSelectLastOption(),
-      motUpdatePage.partieSelectLastOption()
+      motUpdatePage.partieSelectLastOption(),
+      motUpdatePage.tourDeJeuSelectLastOption()
     ]);
 
     expect(await motUpdatePage.getMotInput()).to.eq('mot', 'Expected Mot value to be equals to mot');

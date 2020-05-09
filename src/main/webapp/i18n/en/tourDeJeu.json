@@ -1,0 +1,26 @@
+{
+  "timesuponlineApp": {
+    "tourDeJeu": {
+      "home": {
+        "title": "Tour De Jeus",
+        "createLabel": "Create a new Tour De Jeu",
+        "createOrEditLabel": "Create or edit a Tour De Jeu",
+        "notFound": "No Tour De Jeus found"
+      },
+      "created": "A new Tour De Jeu is created with identifier {{ param }}",
+      "updated": "A Tour De Jeu is updated with identifier {{ param }}",
+      "deleted": "A Tour De Jeu is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Tour De Jeu {{ id }}?"
+      },
+      "detail": {
+        "title": "Tour De Jeu"
+      },
+      "tempsRestant": "Temps Restant",
+      "dateDebute": "Date Debute",
+      "user": "User",
+      "mot": "Mot",
+      "partie": "Partie"
+    }
+  }
+}

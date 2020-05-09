@@ -1,0 +1,47 @@
+{
+    "name": "TourDeJeu",
+    "fields": [
+        {
+            "fieldName": "tempsRestant",
+            "fieldType": "Instant"
+        },
+        {
+            "fieldName": "dateDebute",
+            "fieldType": "ZonedDateTime"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "tourDeJeu",
+            "relationshipName": "user",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mot",
+            "otherEntityRelationshipName": "tourDeJeu",
+            "relationshipName": "mot"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "partie",
+            "otherEntityRelationshipName": "tourDeJeu",
+            "relationshipName": "partie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200509193000",
+    "entityTableName": "tour_de_jeu",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

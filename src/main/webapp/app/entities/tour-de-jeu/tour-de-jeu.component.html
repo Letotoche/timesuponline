@@ -1,0 +1,73 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="timesuponlineApp.tourDeJeu.home.title">Tour De Jeus</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tour-de-jeu" [routerLink]="['/tour-de-jeu/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="timesuponlineApp.tourDeJeu.home.createLabel">
+            Create a new Tour De Jeu
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tourDeJeus?.length === 0">
+        <span jhiTranslate="timesuponlineApp.tourDeJeu.home.notFound">No tourDeJeus found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tourDeJeus?.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="timesuponlineApp.tourDeJeu.tempsRestant">Temps Restant</span></th>
+                    <th scope="col" ><span jhiTranslate="timesuponlineApp.tourDeJeu.dateDebute">Date Debute</span></th>
+                    <th scope="col" ><span jhiTranslate="timesuponlineApp.tourDeJeu.user">User</span></th>
+                    <th scope="col" ><span jhiTranslate="timesuponlineApp.tourDeJeu.partie">Partie</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tourDeJeu of tourDeJeus ;trackBy: trackId">
+                    <td><a [routerLink]="['/tour-de-jeu', tourDeJeu.id, 'view']">{{ tourDeJeu.id }}</a></td>
+                    <td>{{ tourDeJeu.tempsRestant | date:'medium' }}</td>
+                    <td>{{ tourDeJeu.dateDebute | date:'medium' }}</td>
+                    <td>
+                        {{ tourDeJeu.user?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="tourDeJeu.partie">
+                            <a [routerLink]="['/partie', tourDeJeu.partie?.id, 'view']" >{{ tourDeJeu.partie?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tour-de-jeu', tourDeJeu.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tour-de-jeu', tourDeJeu.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tourDeJeu)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

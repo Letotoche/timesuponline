@@ -58,6 +58,10 @@ public class Partie implements Serializable {
     @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
     private Set<Equipe> equipes = new HashSet<>();
 
+    @OneToMany(mappedBy = "partie")
+    @Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
+    private Set<TourDeJeu> tourDeJeus = new HashSet<>();
+
     @ManyToOne
     @JsonIgnoreProperties("parties")
     private User master;
@@ -170,6 +174,31 @@ public class Partie implements Serializable {
 
     public void setEquipes(Set<Equipe> equipes) {
         this.equipes = equipes;
+    }
+
+    public Set<TourDeJeu> getTourDeJeus() {
+        return tourDeJeus;
+    }
+
+    public Partie tourDeJeus(Set<TourDeJeu> tourDeJeus) {
+        this.tourDeJeus = tourDeJeus;
+        return this;
+    }
+
+    public Partie addTourDeJeu(TourDeJeu tourDeJeu) {
+        this.tourDeJeus.add(tourDeJeu);
+        tourDeJeu.setPartie(this);
+        return this;
+    }
+
+    public Partie removeTourDeJeu(TourDeJeu tourDeJeu) {
+        this.tourDeJeus.remove(tourDeJeu);
+        tourDeJeu.setPartie(null);
+        return this;
+    }
+
+    public void setTourDeJeus(Set<TourDeJeu> tourDeJeus) {
+        this.tourDeJeus = tourDeJeus;
     }
 
     public User getMaster() {

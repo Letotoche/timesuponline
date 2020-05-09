@@ -26,6 +26,12 @@
                         <a [routerLink]="['/partie', mot.partie?.id, 'view']">{{ mot.partie?.id }}</a>
                     </div>
                 </dd>
+                <dt><span jhiTranslate="timesuponlineApp.mot.tourDeJeu">Tour De Jeu</span></dt>
+                <dd>
+                    <div *ngIf="mot.tourDeJeu">
+                        <a [routerLink]="['/tour-de-jeu', mot.tourDeJeu?.id, 'view']">{{ mot.tourDeJeu?.id }}</a>
+                    </div>
+                </dd>
             </dl>
 
             <button type="submit"

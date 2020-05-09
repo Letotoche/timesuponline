@@ -58,6 +58,8 @@ public class PartieCriteria implements Serializable, Criteria {
 
     private LongFilter equipeId;
 
+    private LongFilter tourDeJeuId;
+
     private LongFilter masterId;
 
     private LongFilter joueurId;
@@ -75,6 +77,7 @@ public class PartieCriteria implements Serializable, Criteria {
         this.nbMots = other.nbMots == null ? null : other.nbMots.copy();
         this.tempsSablier = other.tempsSablier == null ? null : other.tempsSablier.copy();
         this.equipeId = other.equipeId == null ? null : other.equipeId.copy();
+        this.tourDeJeuId = other.tourDeJeuId == null ? null : other.tourDeJeuId.copy();
         this.masterId = other.masterId == null ? null : other.masterId.copy();
         this.joueurId = other.joueurId == null ? null : other.joueurId.copy();
         this.paquetId = other.paquetId == null ? null : other.paquetId.copy();
@@ -141,6 +144,14 @@ public class PartieCriteria implements Serializable, Criteria {
         this.equipeId = equipeId;
     }
 
+    public LongFilter getTourDeJeuId() {
+        return tourDeJeuId;
+    }
+
+    public void setTourDeJeuId(LongFilter tourDeJeuId) {
+        this.tourDeJeuId = tourDeJeuId;
+    }
+
     public LongFilter getMasterId() {
         return masterId;
     }
@@ -183,6 +194,7 @@ public class PartieCriteria implements Serializable, Criteria {
             Objects.equals(nbMots, that.nbMots) &&
             Objects.equals(tempsSablier, that.tempsSablier) &&
             Objects.equals(equipeId, that.equipeId) &&
+            Objects.equals(tourDeJeuId, that.tourDeJeuId) &&
             Objects.equals(masterId, that.masterId) &&
             Objects.equals(joueurId, that.joueurId) &&
             Objects.equals(paquetId, that.paquetId);
@@ -198,6 +210,7 @@ public class PartieCriteria implements Serializable, Criteria {
         nbMots,
         tempsSablier,
         equipeId,
+        tourDeJeuId,
         masterId,
         joueurId,
         paquetId
@@ -214,6 +227,7 @@ public class PartieCriteria implements Serializable, Criteria {
                 (nbMots != null ? "nbMots=" + nbMots + ", " : "") +
                 (tempsSablier != null ? "tempsSablier=" + tempsSablier + ", " : "") +
                 (equipeId != null ? "equipeId=" + equipeId + ", " : "") +
+                (tourDeJeuId != null ? "tourDeJeuId=" + tourDeJeuId + ", " : "") +
                 (masterId != null ? "masterId=" + masterId + ", " : "") +
                 (joueurId != null ? "joueurId=" + joueurId + ", " : "") +
                 (paquetId != null ? "paquetId=" + paquetId + ", " : "") +

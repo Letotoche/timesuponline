@@ -50,6 +50,9 @@ public class CacheConfiguration {
             createCache(cm, com.letotoche.timesuponline.domain.Mot.class.getName());
             createCache(cm, com.letotoche.timesuponline.domain.Mot.class.getName() + ".auteurs");
             createCache(cm, com.letotoche.timesuponline.domain.Reclamation.class.getName());
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName() + ".tourDeJeus");
+            createCache(cm, com.letotoche.timesuponline.domain.TourDeJeu.class.getName());
+            createCache(cm, com.letotoche.timesuponline.domain.TourDeJeu.class.getName() + ".mots");
             // jhipster-needle-ehcache-add-entry
         };
     }

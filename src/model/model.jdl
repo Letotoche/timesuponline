@@ -20,6 +20,12 @@ enum EtatMot {
   DEVINE
 }
 
+enum EtatTourDeJeu {
+  EN_ATTENTE,
+  EN_COURS,
+  TERMINE
+}
+
 entity Partie {
 	intitule String required maxlength(100)
   dateCreation LocalDate
@@ -27,6 +33,11 @@ entity Partie {
   /** options **/
   nbMots Integer
   tempsSablier Integer
+}
+
+entity TourDeJeu {
+  tempsRestant Instant
+  dateDebute ZonedDateTime
 }
 
 /**
@@ -68,11 +79,13 @@ relationship OneToOne {
   Mot{auteur(login)} to User
   Reclamation{auteur(login)} to User
   Reclamation to Mot
+  TourDeJeu to User
 }
 
 relationship ManyToOne {
   Partie{master(login)} to User
   Mot to Partie{paquet}
+  
 }
 
 relationship ManyToMany {
@@ -83,6 +96,8 @@ relationship ManyToMany {
 
 relationship OneToMany {
   Partie to Equipe
+  TourDeJeu to Mot
+  Partie to TourDeJeu
 }
 
 filter Partie

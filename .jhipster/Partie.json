@@ -40,6 +40,12 @@
             "relationshipName": "equipe"
         },
         {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "tourDeJeu",
+            "otherEntityRelationshipName": "partie",
+            "relationshipName": "tourDeJeu"
+        },
+        {
             "relationshipType": "many-to-one",
             "otherEntityName": "user",
             "otherEntityRelationshipName": "partie",

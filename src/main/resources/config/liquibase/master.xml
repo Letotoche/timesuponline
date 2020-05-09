@@ -18,10 +18,12 @@
     <include file="config/liquibase/changelog/20200509121500_added_entity_Equipe.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200509131600_added_entity_Mot.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200509135100_added_entity_Reclamation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200509193000_added_entity_TourDeJeu.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20200508222100_added_entity_constraints_Partie.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200509121500_added_entity_constraints_Equipe.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200509131600_added_entity_constraints_Mot.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20200509135100_added_entity_constraints_Reclamation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20200509193000_added_entity_constraints_TourDeJeu.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

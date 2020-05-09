@@ -56,6 +56,10 @@ public class Mot implements Serializable {
     @JsonIgnore
     private Reclamation reclamation;
 
+    @ManyToOne
+    @JsonIgnoreProperties("mots")
+    private TourDeJeu tourDeJeu;
+
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
         return id;
@@ -128,6 +132,19 @@ public class Mot implements Serializable {
 
     public void setReclamation(Reclamation reclamation) {
         this.reclamation = reclamation;
+    }
+
+    public TourDeJeu getTourDeJeu() {
+        return tourDeJeu;
+    }
+
+    public Mot tourDeJeu(TourDeJeu tourDeJeu) {
+        this.tourDeJeu = tourDeJeu;
+        return this;
+    }
+
+    public void setTourDeJeu(TourDeJeu tourDeJeu) {
+        this.tourDeJeu = tourDeJeu;
     }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 

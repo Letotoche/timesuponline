@@ -11,6 +11,7 @@
         "equipe": "Equipe",
         "mot": "Mot",
         "reclamation": "Reclamation",
+        "tourDeJeu": "Tour De Jeu",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

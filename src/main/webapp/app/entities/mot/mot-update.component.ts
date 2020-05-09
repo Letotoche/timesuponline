@@ -11,8 +11,10 @@ import { IUser } from 'app/core/user/user.model';
 import { UserService } from 'app/core/user/user.service';
 import { IPartie } from 'app/shared/model/partie.model';
 import { PartieService } from 'app/entities/partie/partie.service';
+import { ITourDeJeu } from 'app/shared/model/tour-de-jeu.model';
+import { TourDeJeuService } from 'app/entities/tour-de-jeu/tour-de-jeu.service';
 
-type SelectableEntity = IUser | IPartie;
+type SelectableEntity = IUser | IPartie | ITourDeJeu;
 
 @Component({
   selector: 'jhi-mot-update',
@@ -22,19 +24,22 @@ export class MotUpdateComponent implements OnInit {
   isSaving = false;
   users: IUser[] = [];
   parties: IPartie[] = [];
+  tourdejeus: ITourDeJeu[] = [];
 
   editForm = this.fb.group({
     id: [],
     mot: [null, [Validators.required]],
     etat: [null, [Validators.required]],
     auteur: [],
-    partie: []
+    partie: [],
+    tourDeJeu: []
   });
 
   constructor(
     protected motService: MotService,
     protected userService: UserService,
     protected partieService: PartieService,
+    protected tourDeJeuService: TourDeJeuService,
     protected activatedRoute: ActivatedRoute,
     private fb: FormBuilder
   ) {}
@@ -46,6 +51,8 @@ export class MotUpdateComponent implements OnInit {
       this.userService.query().subscribe((res: HttpResponse<IUser[]>) => (this.users = res.body || []));
 
       this.partieService.query().subscribe((res: HttpResponse<IPartie[]>) => (this.parties = res.body || []));
+
+      this.tourDeJeuService.query().subscribe((res: HttpResponse<ITourDeJeu[]>) => (this.tourdejeus = res.body || []));
     });
   }
 
@@ -55,7 +62,8 @@ export class MotUpdateComponent implements OnInit {
       mot: mot.mot,
       etat: mot.etat,
       auteur: mot.auteur,
-      partie: mot.partie
+      partie: mot.partie,
+      tourDeJeu: mot.tourDeJeu
     });
   }
 
@@ -80,7 +88,8 @@ export class MotUpdateComponent implements OnInit {
       mot: this.editForm.get(['mot'])!.value,
       etat: this.editForm.get(['etat'])!.value,
       auteur: this.editForm.get(['auteur'])!.value,
-      partie: this.editForm.get(['partie'])!.value
+      partie: this.editForm.get(['partie'])!.value,
+      tourDeJeu: this.editForm.get(['tourDeJeu'])!.value
     };
   }
 

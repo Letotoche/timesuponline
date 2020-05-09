@@ -34,6 +34,7 @@ export class MotUpdatePage {
 
   auteurSelect = element(by.id('field_auteur'));
   partieSelect = element(by.id('field_partie'));
+  tourDeJeuSelect = element(by.id('field_tourDeJeu'));
 
   async getPageTitle(): Promise<string> {
     return this.pageTitle.getAttribute('jhiTranslate');
@@ -98,6 +99,25 @@ export class MotUpdatePage {
 
   async getPartieSelectedOption(): Promise<string> {
     return await this.partieSelect.element(by.css('option:checked')).getText();
+  }
+
+  async tourDeJeuSelectLastOption(): Promise<void> {
+    await this.tourDeJeuSelect
+      .all(by.tagName('option'))
+      .last()
+      .click();
+  }
+
+  async tourDeJeuSelectOption(option: string): Promise<void> {
+    await this.tourDeJeuSelect.sendKeys(option);
+  }
+
+  getTourDeJeuSelect(): ElementFinder {
+    return this.tourDeJeuSelect;
+  }
+
+  async getTourDeJeuSelectedOption(): Promise<string> {
+    return await this.tourDeJeuSelect.element(by.css('option:checked')).getText();
   }
 
   async save(): Promise<void> {

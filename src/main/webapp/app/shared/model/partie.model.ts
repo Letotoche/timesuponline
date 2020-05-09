@@ -1,5 +1,6 @@
 import { Moment } from 'moment';
 import { IEquipe } from 'app/shared/model/equipe.model';
+import { ITourDeJeu } from 'app/shared/model/tour-de-jeu.model';
 import { IUser } from 'app/core/user/user.model';
 import { IMot } from 'app/shared/model/mot.model';
 import { PhasePartie } from 'app/shared/model/enumerations/phase-partie.model';
@@ -12,6 +13,7 @@ export interface IPartie {
   nbMots?: number;
   tempsSablier?: number;
   equipes?: IEquipe[];
+  tourDeJeus?: ITourDeJeu[];
   master?: IUser;
   joueurs?: IUser[];
   paquets?: IMot[];
@@ -26,6 +28,7 @@ export class Partie implements IPartie {
     public nbMots?: number,
     public tempsSablier?: number,
     public equipes?: IEquipe[],
+    public tourDeJeus?: ITourDeJeu[],
     public master?: IUser,
     public joueurs?: IUser[],
     public paquets?: IMot[]

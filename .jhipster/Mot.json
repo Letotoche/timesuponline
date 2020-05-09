@@ -38,6 +38,13 @@
             "otherEntityRelationshipName": "mot",
             "relationshipName": "reclamation",
             "ownerSide": false
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "tourDeJeu",
+            "otherEntityRelationshipName": "mot",
+            "relationshipName": "tourDeJeu",
+            "otherEntityField": "id"
         }
     ],
     "changelogDate": "20200509131600",

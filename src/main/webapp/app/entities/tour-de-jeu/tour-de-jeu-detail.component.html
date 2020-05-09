@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tourDeJeu">
+            <h2><span jhiTranslate="timesuponlineApp.tourDeJeu.detail.title">Tour De Jeu</span> {{ tourDeJeu.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="timesuponlineApp.tourDeJeu.tempsRestant">Temps Restant</span></dt>
+                <dd>
+                    <span>{{ tourDeJeu.tempsRestant }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.tourDeJeu.dateDebute">Date Debute</span></dt>
+                <dd>
+                    <span>{{ tourDeJeu.dateDebute }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.tourDeJeu.user">User</span></dt>
+                <dd>
+                    {{ tourDeJeu.user?.id }}
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.tourDeJeu.partie">Partie</span></dt>
+                <dd>
+                    <div *ngIf="tourDeJeu.partie">
+                        <a [routerLink]="['/partie', tourDeJeu.partie?.id, 'view']">{{ tourDeJeu.partie?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tour-de-jeu', tourDeJeu.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -104,6 +104,10 @@ public class PartieQueryService extends QueryService<Partie> {
                 specification = specification.and(buildSpecification(criteria.getEquipeId(),
                     root -> root.join(Partie_.equipes, JoinType.LEFT).get(Equipe_.id)));
             }
+            if (criteria.getTourDeJeuId() != null) {
+                specification = specification.and(buildSpecification(criteria.getTourDeJeuId(),
+                    root -> root.join(Partie_.tourDeJeus, JoinType.LEFT).get(TourDeJeu_.id)));
+            }
             if (criteria.getMasterId() != null) {
                 specification = specification.and(buildSpecification(criteria.getMasterId(),
                     root -> root.join(Partie_.master, JoinType.LEFT).get(User_.id)));
