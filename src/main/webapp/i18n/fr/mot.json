@@ -1,0 +1,29 @@
+{
+  "timesuponlineApp": {
+    "mot": {
+      "home": {
+        "title": "Mots",
+        "createLabel": "Créer un nouveau Mot",
+        "createOrEditLabel": "Créer ou éditer un Mot",
+        "notFound": "Aucun Mot trouvé"
+      },
+      "created": "Un nouveau Mot a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Mot avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Mot avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Mot {{ id }} ?"
+      },
+      "detail": {
+        "title": "Mot"
+      },
+      "mot": "Mot",
+      "etat": "Etat",
+      "auteur": "Auteur",
+      "partie": "Partie",
+      "reclamation": "Reclamation",
+      "help": {
+        "mot": "mot"
+      }
+    }
+  }
+}

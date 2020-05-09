@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="mot">
+            <h2><span jhiTranslate="timesuponlineApp.mot.detail.title">Mot</span> {{ mot.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="timesuponlineApp.mot.mot" [ngbTooltip]="'timesuponlineApp.mot.help.mot' | translate">Mot</span></dt>
+                <dd>
+                    <span>{{ mot.mot }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.mot.etat">Etat</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'timesuponlineApp.EtatMot.' + mot.etat }}">{{ mot.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.mot.auteur">Auteur</span></dt>
+                <dd>
+                    {{ mot.auteur?.login }}
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.mot.partie">Partie</span></dt>
+                <dd>
+                    <div *ngIf="mot.partie">
+                        <a [routerLink]="['/partie', mot.partie?.id, 'view']">{{ mot.partie?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/mot', mot.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

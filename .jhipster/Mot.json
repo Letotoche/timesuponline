@@ -1,0 +1,55 @@
+{
+    "name": "Mot",
+    "fields": [
+        {
+            "fieldName": "mot",
+            "javadoc": "mot",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "etat",
+            "fieldType": "EtatMot",
+            "fieldValues": "A_DEVINER,PASSE,DEVINE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "mot",
+            "relationshipName": "auteur",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "partie",
+            "otherEntityRelationshipName": "paquet"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "reclamation",
+            "otherEntityRelationshipName": "mot",
+            "relationshipName": "reclamation",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20200509131600",
+    "javadoc": "The Mot entity.\\n@author A true hipster",
+    "entityTableName": "mot",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

@@ -1,0 +1,33 @@
+{
+  "timesuponlineApp": {
+    "partie": {
+      "home": {
+        "title": "Parties",
+        "createLabel": "Create a new Partie",
+        "createOrEditLabel": "Create or edit a Partie",
+        "notFound": "No Parties found"
+      },
+      "created": "A new Partie is created with identifier {{ param }}",
+      "updated": "A Partie is updated with identifier {{ param }}",
+      "deleted": "A Partie is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Partie {{ id }}?"
+      },
+      "detail": {
+        "title": "Partie"
+      },
+      "intitule": "Intitule",
+      "dateCreation": "Date Creation",
+      "phase": "Phase",
+      "nbMots": "Nb Mots",
+      "tempsSablier": "Temps Sablier",
+      "equipe": "Equipe",
+      "master": "Master",
+      "joueur": "Joueur",
+      "paquet": "Paquet",
+      "help": {
+        "nbMots": "options"
+      }
+    }
+  }
+}

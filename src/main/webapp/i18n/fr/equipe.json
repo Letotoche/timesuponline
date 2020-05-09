@@ -1,0 +1,31 @@
+{
+  "timesuponlineApp": {
+    "equipe": {
+      "home": {
+        "title": "Equipes",
+        "createLabel": "Créer un nouveau Equipe",
+        "createOrEditLabel": "Créer ou éditer un Equipe",
+        "notFound": "Aucun Equipe trouvé"
+      },
+      "created": "Un nouveau Equipe a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Equipe avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Equipe avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Equipe {{ id }} ?"
+      },
+      "detail": {
+        "title": "Equipe"
+      },
+      "nom": "Nom",
+      "score1": "Score 1",
+      "score2": "Score 2",
+      "score3": "Score 3",
+      "membre": "Membre",
+      "partie": "Partie",
+      "help": {
+        "nom": "fieldName",
+        "score1": "scores"
+      }
+    }
+  }
+}

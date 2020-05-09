@@ -1,0 +1,92 @@
+enum PhasePartie {
+  CREEE,
+  RECRUTEMENT,
+  CHOIX_MOTS,
+  MANCHE_1,
+  MANCHE_2,
+  MANCHE_3,
+  TERMINEE
+}
+
+enum EtatReclamation {
+  EMISE,
+  ACCEPTEE,
+  REFUSEE
+}
+
+enum EtatMot {
+  A_DEVINER,
+  PASSE,
+  DEVINE
+}
+
+entity Partie {
+	intitule String required maxlength(100)
+  dateCreation LocalDate
+  phase PhasePartie required
+  /** options **/
+  nbMots Integer
+  tempsSablier Integer
+}
+
+/**
+ * The Entity entity.
+ * @author Antoine
+ */
+entity Equipe {
+  /** fieldName */
+  nom String required
+  /** scores **/
+  score1 Integer
+  score2 Integer
+  score3 Integer
+} 
+
+/**
+ * The Mot entity.
+ * @author A true hipster
+ */
+entity Mot {
+  /** mot */
+  mot String required
+  etat EtatMot required
+}
+
+
+/**
+ * The Reclamation entity.
+ * @author A true hipster
+ */
+entity Reclamation {
+  etat EtatReclamation required
+}
+
+/**
+ * One to one relationship.
+ */
+relationship OneToOne {  
+  Mot{auteur(login)} to User
+  Reclamation{auteur(login)} to User
+  Reclamation to Mot
+}
+
+relationship ManyToOne {
+  Partie{master(login)} to User
+  Mot to Partie{paquet}
+}
+
+relationship ManyToMany {
+	Partie{joueur(login)} to User
+	Equipe{membre(login)} to User
+
+}
+
+relationship OneToMany {
+  Partie to Equipe
+}
+
+filter Partie
+
+paginate Partie,Equipe with pagination 
+
+service all with serviceImpl

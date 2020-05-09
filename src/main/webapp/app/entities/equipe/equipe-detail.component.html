@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="equipe">
+            <h2><span jhiTranslate="timesuponlineApp.equipe.detail.title">Equipe</span> {{ equipe.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="timesuponlineApp.equipe.nom" [ngbTooltip]="'timesuponlineApp.equipe.help.nom' | translate">Nom</span></dt>
+                <dd>
+                    <span>{{ equipe.nom }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.equipe.score1" [ngbTooltip]="'timesuponlineApp.equipe.help.score1' | translate">Score 1</span></dt>
+                <dd>
+                    <span>{{ equipe.score1 }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.equipe.score2">Score 2</span></dt>
+                <dd>
+                    <span>{{ equipe.score2 }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.equipe.score3">Score 3</span></dt>
+                <dd>
+                    <span>{{ equipe.score3 }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.equipe.membre">Membre</span></dt>
+                <dd>
+                    <span *ngFor="let membre of equipe.membres; let last = last">
+                        {{ membre.login }}{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.equipe.partie">Partie</span></dt>
+                <dd>
+                    <div *ngIf="equipe.partie">
+                        <a [routerLink]="['/partie', equipe.partie?.id, 'view']">{{ equipe.partie?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/equipe', equipe.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

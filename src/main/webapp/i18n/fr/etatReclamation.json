@@ -1,0 +1,10 @@
+{
+  "timesuponlineApp": {
+    "EtatReclamation": {
+      "null": "",
+      "EMISE": "EMISE",
+      "ACCEPTEE": "ACCEPTEE",
+      "REFUSEE": "REFUSEE"
+    }
+  }
+}

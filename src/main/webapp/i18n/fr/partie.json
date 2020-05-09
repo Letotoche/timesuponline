@@ -1,0 +1,33 @@
+{
+  "timesuponlineApp": {
+    "partie": {
+      "home": {
+        "title": "Parties",
+        "createLabel": "Créer un nouveau Partie",
+        "createOrEditLabel": "Créer ou éditer un Partie",
+        "notFound": "Aucun Partie trouvé"
+      },
+      "created": "Un nouveau Partie a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Partie avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Partie avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Partie {{ id }} ?"
+      },
+      "detail": {
+        "title": "Partie"
+      },
+      "intitule": "Intitule",
+      "dateCreation": "Date Creation",
+      "phase": "Phase",
+      "nbMots": "Nb Mots",
+      "tempsSablier": "Temps Sablier",
+      "equipe": "Equipe",
+      "master": "Master",
+      "joueur": "Joueur",
+      "paquet": "Paquet",
+      "help": {
+        "nbMots": "options"
+      }
+    }
+  }
+}

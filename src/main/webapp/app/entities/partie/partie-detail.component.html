@@ -1,0 +1,56 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="partie">
+            <h2><span jhiTranslate="timesuponlineApp.partie.detail.title">Partie</span> {{ partie.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="timesuponlineApp.partie.intitule">Intitule</span></dt>
+                <dd>
+                    <span>{{ partie.intitule }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.dateCreation">Date Creation</span></dt>
+                <dd>
+                    <span>{{ partie.dateCreation }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.phase">Phase</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'timesuponlineApp.PhasePartie.' + partie.phase }}">{{ partie.phase }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.nbMots" [ngbTooltip]="'timesuponlineApp.partie.help.nbMots' | translate">Nb Mots</span></dt>
+                <dd>
+                    <span>{{ partie.nbMots }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.tempsSablier">Temps Sablier</span></dt>
+                <dd>
+                    <span>{{ partie.tempsSablier }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.master">Master</span></dt>
+                <dd>
+                    {{ partie.master?.login }}
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.partie.joueur">Joueur</span></dt>
+                <dd>
+                    <span *ngFor="let joueur of partie.joueurs; let last = last">
+                        {{ joueur.login }}{{ last ? '' : ', ' }}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/partie', partie.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

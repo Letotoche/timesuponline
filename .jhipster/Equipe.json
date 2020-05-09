@@ -1,0 +1,55 @@
+{
+    "name": "Equipe",
+    "fields": [
+        {
+            "fieldName": "nom",
+            "javadoc": "fieldName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "score1",
+            "javadoc": "scores",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score2",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "score3",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "equipe",
+            "relationshipName": "membre",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "partie",
+            "otherEntityRelationshipName": "equipe",
+            "relationshipName": "partie",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20200509121500",
+    "javadoc": "The Entity entity.\\n@author Antoine",
+    "entityTableName": "equipe",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

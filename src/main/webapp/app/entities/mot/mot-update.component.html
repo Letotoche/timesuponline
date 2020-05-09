@@ -1,0 +1,69 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-mot-heading" jhiTranslate="timesuponlineApp.mot.home.createOrEditLabel">Create or edit a Mot</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="timesuponlineApp.mot.mot" for="field_mot" [ngbTooltip]="'timesuponlineApp.mot.help.mot' | translate">Mot</label>
+                    <input type="text" class="form-control" name="mot" id="field_mot"
+                           formControlName="mot"/>
+                    <div *ngIf="editForm.get('mot')!.invalid && (editForm.get('mot')!.dirty || editForm.get('mot')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('mot')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="timesuponlineApp.mot.etat" for="field_etat">Etat</label>
+                    <select class="form-control" name="etat" formControlName="etat" id="field_etat">
+                        <option value="A_DEVINER">{{ 'timesuponlineApp.EtatMot.A_DEVINER' | translate }}</option>
+                        <option value="PASSE">{{ 'timesuponlineApp.EtatMot.PASSE' | translate }}</option>
+                        <option value="DEVINE">{{ 'timesuponlineApp.EtatMot.DEVINE' | translate }}</option>
+                    </select>
+                    <div *ngIf="editForm.get('etat')!.invalid && (editForm.get('etat')!.dirty || editForm.get('etat')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('etat')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="timesuponlineApp.mot.auteur" for="field_auteur">Auteur</label>
+                    <select class="form-control" id="field_auteur" name="auteur" formControlName="auteur">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="userOption.id === editForm.get('auteur')!.value?.id ? editForm.get('auteur')!.value : userOption" *ngFor="let userOption of users; trackBy: trackById">{{ userOption.login }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="timesuponlineApp.mot.partie" for="field_partie">Partie</label>
+                    <select class="form-control" id="field_partie" name="partie" formControlName="partie">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="partieOption.id === editForm.get('partie')!.value?.id ? editForm.get('partie')!.value : partieOption" *ngFor="let partieOption of parties; trackBy: trackById">{{ partieOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+export const enum PhasePartie {
+  CREEE = 'CREEE',
+  RECRUTEMENT = 'RECRUTEMENT',
+  CHOIX_MOTS = 'CHOIX_MOTS',
+  MANCHE_1 = 'MANCHE_1',
+  MANCHE_2 = 'MANCHE_2',
+  MANCHE_3 = 'MANCHE_3',
+  TERMINEE = 'TERMINEE'
+}

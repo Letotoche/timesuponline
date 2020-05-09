@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="reclamation">
+            <h2><span jhiTranslate="timesuponlineApp.reclamation.detail.title">Reclamation</span> {{ reclamation.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="timesuponlineApp.reclamation.etat">Etat</span></dt>
+                <dd>
+                    <span jhiTranslate="{{ 'timesuponlineApp.EtatReclamation.' + reclamation.etat }}">{{ reclamation.etat }}</span>
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.reclamation.auteur">Auteur</span></dt>
+                <dd>
+                    {{ reclamation.auteur?.login }}
+                </dd>
+                <dt><span jhiTranslate="timesuponlineApp.reclamation.mot">Mot</span></dt>
+                <dd>
+                    <div *ngIf="reclamation.mot">
+                        <a [routerLink]="['/mot', reclamation.mot?.id, 'view']">{{ reclamation.mot?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/reclamation', reclamation.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

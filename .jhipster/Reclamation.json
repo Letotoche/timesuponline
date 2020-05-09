@@ -1,0 +1,43 @@
+{
+    "name": "Reclamation",
+    "fields": [
+        {
+            "fieldName": "etat",
+            "fieldType": "EtatReclamation",
+            "fieldValues": "EMISE,ACCEPTEE,REFUSEE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "reclamation",
+            "relationshipName": "auteur",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-one",
+            "otherEntityName": "mot",
+            "otherEntityRelationshipName": "reclamation",
+            "relationshipName": "mot",
+            "otherEntityField": "id",
+            "ownerSide": true
+        }
+    ],
+    "changelogDate": "20200509135100",
+    "javadoc": "The Reclamation entity.\\n@author A true hipster",
+    "entityTableName": "reclamation",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}

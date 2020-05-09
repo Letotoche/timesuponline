@@ -40,6 +40,16 @@ public class CacheConfiguration {
             createCache(cm, com.letotoche.timesuponline.domain.User.class.getName());
             createCache(cm, com.letotoche.timesuponline.domain.Authority.class.getName());
             createCache(cm, com.letotoche.timesuponline.domain.User.class.getName() + ".authorities");
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName());
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName() + ".joueurs");
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName() + ".masters");
+            createCache(cm, com.letotoche.timesuponline.domain.Equipe.class.getName());
+            createCache(cm, com.letotoche.timesuponline.domain.Equipe.class.getName() + ".membres");
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName() + ".equipes");
+            createCache(cm, com.letotoche.timesuponline.domain.Partie.class.getName() + ".paquets");
+            createCache(cm, com.letotoche.timesuponline.domain.Mot.class.getName());
+            createCache(cm, com.letotoche.timesuponline.domain.Mot.class.getName() + ".auteurs");
+            createCache(cm, com.letotoche.timesuponline.domain.Reclamation.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

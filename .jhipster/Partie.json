@@ -1,0 +1,75 @@
+{
+    "name": "Partie",
+    "fields": [
+        {
+            "fieldName": "intitule",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required",
+                "maxlength"
+            ],
+            "fieldValidateRulesMaxlength": "100"
+        },
+        {
+            "fieldName": "dateCreation",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "phase",
+            "fieldType": "PhasePartie",
+            "fieldValues": "CREEE,RECRUTEMENT,CHOIX_MOTS,MANCHE_1,MANCHE_2,MANCHE_3,TERMINEE",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "nbMots",
+            "javadoc": "options",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "tempsSablier",
+            "fieldType": "Integer"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "equipe",
+            "otherEntityRelationshipName": "partie",
+            "relationshipName": "equipe"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "partie",
+            "relationshipName": "master",
+            "otherEntityField": "login"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "user",
+            "otherEntityRelationshipName": "partie",
+            "relationshipName": "joueur",
+            "otherEntityField": "login",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "mot",
+            "otherEntityRelationshipName": "partie",
+            "relationshipName": "paquet"
+        }
+    ],
+    "changelogDate": "20200508222100",
+    "entityTableName": "partie",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": true,
+    "fluentMethods": true,
+    "readOnly": false,
+    "embedded": false,
+    "clientRootFolder": "",
+    "applications": "*"
+}
